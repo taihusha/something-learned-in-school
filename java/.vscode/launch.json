@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - homework",
+            "request": "launch",
+            "mainClass": "homework",
+            "projectName": "java_af0dc5b5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - lsc",
+            "request": "launch",
+            "mainClass": "lsc",
+            "projectName": "java_af0dc5b5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Test",
+            "request": "launch",
+            "mainClass": "Test"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - cloestPoint",
+            "request": "launch",
+            "mainClass": "cloestPoint"
+        }
+    ]
+}
