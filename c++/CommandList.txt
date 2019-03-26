@@ -1,0 +1,6 @@
+本文件最后一次打开和运行日期是2019032610hour13min02.434second 
+
+
+fileAndThread.exe
+test.exe
+binary.exe

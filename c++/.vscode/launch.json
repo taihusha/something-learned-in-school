@@ -2,65 +2,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "CodeLens (Launch) - cloestPoint",
-            "request": "launch",
-            "mainClass": "cloestPoint",
-            "projectName": "Visual studio_d877f69c"
-        },
-        {
-            "name": "运行go文件",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "${file}"
-        },
-        {
-            "name": "运行项目",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "remotePath": "",
-            "port": 2345,
-            "host": "127.0.0.1",
-            "program": "${workspaceRoot}/src",
-            "env": {},
-            "args": [],
-            "showLog": true
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Strassen",
-            "request": "launch",
-            "mainClass": "Strassen",
-            "projectName": "Visual studio_d877f69c"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Test",
-            "request": "launch",
-            "mainClass": "Test",
-            "projectName": "Visual studio_d877f69c"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Hello",
-            "request": "launch",
-            "mainClass": "Hello"
-        },
-        {
             "name": "(gdb) Launch",
+            "preLaunchTask": "build",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "D:\\Bin\\gdb.exe",
-            "preLaunchTask": "g++",
+            "miDebuggerPath": "D:/bin/gdb.exe", // 这里修改GDB路径为安装的mingw64的bin下的gdb.exe路径
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -68,6 +21,5 @@
                     "ignoreFailures": true
                 }
             ]
-        }
-    ]
+        }]
 }
