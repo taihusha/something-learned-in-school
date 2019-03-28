@@ -4,15 +4,15 @@ int main()
 {
     HANDLE hFILE=CreateFile("./CommandList.txt", GENERIC_WRITE | GENERIC_READ, 0,NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
     //WORD color;
-    /*
-    BOOL WriteFile(
+    
+  /*   BOOL WriteFile(
         HANDLE hFile,
         LPCVOID lpBuffer,
         DWORD nNumberOfBytesToWrite,
         LPDWORDlpNumberOfBytesWritten,
         LPOVERLAPPEDlpOverlapped
         );
-        */
+         */
     char timeContent[100] = {0};
     SYSTEMTIME sys;
     GetLocalTime(&sys);
@@ -81,8 +81,6 @@ for(int j=0;j<commandNum;j++)
     if(bRet){
         CloseHandle(pi.hThread);
 		CloseHandle(pi.hProcess);
-        printf("ID：%d\n",pi.dwProcessId);
-		printf("mainThreadID号：%d\n",pi.dwThreadId);
     }  
     Sleep(1000);
 }
