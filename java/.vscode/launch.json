@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - shortestDis",
+            "request": "launch",
+            "mainClass": "shortestDis",
+            "projectName": "java_af0dc5b5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Dijkstra__Single_Source_Shortest_Path",
+            "request": "launch",
+            "mainClass": "Dijkstra__Single_Source_Shortest_Path",
+            "projectName": "java_af0dc5b5"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - homework",
             "request": "launch",
             "mainClass": "homework",
