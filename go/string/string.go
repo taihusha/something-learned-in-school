@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -68,5 +69,22 @@ func main() {
 	   如果你只想剔除开头或者结尾的字符串，则可以使用 TrimLeft 或者 TrimRight 来实现。
 	   strings.Fields(s) 将会利用 1 个或多个空白符号来作为动态长度的分隔符将字符串分割成若干小块，
 	   并返回一个 slice，如果字符串只包含空白符号，则返回一个长度为 0 的 slice。
-	   strings.Split(s, sep) 用于自定义分割符号来对指定字符串进行分割，同样返回 slice。 */
+		strings.Split(s, sep) 用于自定义分割符号来对指定字符串进行分割，同样返回 slice。 */
+	/* strconv.Itoa(i int) string 返回数字 i 所表示的字符串类型的十进制数。
+	   strconv.FormatFloat(f float64, fmt byte, prec int, bitSize int) string
+	   将 64 位浮点型的数字转换为字符串，其中 fmt 表示格式（其值可以是 'b'、'e'、'f' 或 'g'），
+		prec 表示精度，bitSize 则使用 32 表示 float32，用 64 表示 float64。
+		strconv.Atoi(s string) (i int, err error) 将字符串转换为 int 型。
+		strconv.ParseFloat(s string, bitSize int) (f float64, err error) 将字符串转换为 float64 型。 */
+	var origs string = "666"
+	var an int
+	var newSs string
+
+	fmt.Printf("The size of ints is: %d\n", strconv.IntSize)
+
+	an, _ = strconv.Atoi(origs)
+	fmt.Printf("The integer is: %d\n", an)
+	an = an + 5
+	newSs = strconv.Itoa(an)
+	fmt.Printf("The new string is: %s\n", newSs)
 }
