@@ -37,7 +37,7 @@ var (
 func main() {
 	//函数体内局部变量的声明
 	//	var a string = "abc"
-	d := 10
+	//d := 10
 	//	g, h := 26, "hello"
 	fmt.Println("hello")
 }

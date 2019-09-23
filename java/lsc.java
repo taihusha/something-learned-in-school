@@ -1,9 +1,15 @@
+import java.util.*;  
 class lsc{
+    
     public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);  
         String s1="ACCGGTCGAGATGCAG";
         String s2="GTCGTTCGGAATGCAT";
         System.out.println(lcs_length(s1, s2));
         System.out.print("hello");
+        String name = s.nextLine();  
+        System.out.println("姓名：" + name ); 
+        s.close();
     }
     public static int lcs_length(String a,String b){
         int[][] len=new int[a.length()+1][b.length()+1];

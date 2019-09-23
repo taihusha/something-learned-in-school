@@ -1,0 +1,265 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\dg.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\dg.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 dg"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "dg 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2008",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_DG_DIALOG DIALOGEX 0, 0, 525, 363
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "曹杰先"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,55,319,60,20
+    DEFPUSHBUTTON   "取消",IDCANCEL,369,319,60,20
+    LTEXT           "   请输入5为哲学家的需 : ",IDC_STATIC,55,26,98,11,
+                    SS_CENTERIMAGE
+    CTEXT           "第一位",IDC_STATIC,70,68,50,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "第二位",IDC_STATIC,154,68,50,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "第三位",IDC_STATIC,238,68,50,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "第五位",IDC_STATIC,406,68,50,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "第四位",IDC_STATIC,322,68,50,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    EDITTEXT        IDC_EDIT1,70,95,50,14,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,154,95,50,14,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,238,95,50,14,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,322,95,50,14,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,405,95,50,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "",IDC_TEXT,193,135,262,18,SS_NOTIFY | SS_CENTERIMAGE | 
+                    SS_SUNKEN | WS_BORDER,WS_EX_CLIENTEDGE
+    LTEXT           "第",IDC_STATIC,101,134,17,18,SS_CENTERIMAGE,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT6,127,137,19,18,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "位哲学家",IDC_STATIC,156,136,33,18,SS_CENTERIMAGE
+    LTEXT           "",IDC_TEXT2,193,155,262,18,SS_NOTIFY | SS_CENTERIMAGE | 
+                    SS_SUNKEN | WS_BORDER,WS_EX_CLIENTEDGE
+    LTEXT           "第",IDC_STATIC,102,155,17,18,SS_CENTERIMAGE,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT7,128,158,19,18,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "位哲学家",IDC_STATIC,157,157,34,18,SS_CENTERIMAGE
+    LTEXT           "",IDC_TEXT3,193,177,262,18,SS_NOTIFY | SS_CENTERIMAGE | 
+                    SS_SUNKEN | WS_BORDER,WS_EX_CLIENTEDGE
+    LTEXT           "第",IDC_STATIC,102,176,17,18,SS_CENTERIMAGE,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT8,128,179,19,18,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "位哲学家",IDC_STATIC,157,178,34,18,SS_CENTERIMAGE
+    LTEXT           "",IDC_TEXT4,193,197,262,18,SS_NOTIFY | SS_CENTERIMAGE | 
+                    SS_SUNKEN | WS_BORDER,WS_EX_CLIENTEDGE
+    LTEXT           "第",IDC_STATIC,102,196,17,18,SS_CENTERIMAGE,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT9,128,199,19,18,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "位哲学家",IDC_STATIC,157,198,34,18,SS_CENTERIMAGE
+    LTEXT           "",IDC_TEXT5,193,215,262,18,SS_NOTIFY | SS_CENTERIMAGE | 
+                    SS_SUNKEN | WS_BORDER,WS_EX_CLIENTEDGE
+    LTEXT           "第",IDC_STATIC,101,215,17,18,SS_CENTERIMAGE,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT10,127,218,19,18,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "位哲学家",IDC_STATIC,156,217,37,18,SS_CENTERIMAGE
+    LTEXT           "～～～谢谢使用～～～ ",IDC_STATIC,53,267,103,21
+    LTEXT           "******************************************************************************************************************",
+                    IDC_STATIC,32,15,461,8,SS_CENTERIMAGE
+    LTEXT           "******************************************************************************************************************",
+                    IDC_STATIC,33,47,459,14,SS_CENTERIMAGE
+    LTEXT           "   0:继续思考       1：思考—>饥饿         2：吃饭—>思考",
+                    IDC_STATIC,153,35,238,14,SS_CENTERIMAGE
+    LTEXT           "******************************************************************************************************************",
+                    IDC_STATIC,32,253,461,14,SS_CENTERIMAGE
+    LTEXT           "******************************************************************************************************************",
+                    IDC_STATIC,32,293,461,14,SS_CENTERIMAGE
+    LTEXT           "本程序为曹杰先编写。版权所有，盗版必究.  ",IDC_STATIC,
+                    229,279,166,14,SS_CENTERIMAGE
+    GROUPBOX        "结果：",IDC_STATIC,75,125,394,120
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "dg Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "dg\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2008\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "dg.EXE\0"
+            VALUE "ProductName", "dg 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 518
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 356
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 dg(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\dg.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

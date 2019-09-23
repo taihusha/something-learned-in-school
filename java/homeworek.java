@@ -10,7 +10,11 @@ class homework{
         fastest_way(a,t,e,x,f,l,5);    
         System.out.println("所花最短时间是:"+last_f);     
         print_station_recursive(l,last_l,5);  
+
+        
     }   
+
+    
      
     
         static  int N=6;
@@ -65,4 +69,3 @@ class homework{
             } 
         }
            
-

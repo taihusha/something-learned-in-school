@@ -2,6 +2,25 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - lsc",
+            "request": "launch",
+            "mainClass": "lsc"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - fuhe",
+            "request": "launch",
+            "mainClass": "fuhe"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - calculateWork",
+            "request": "launch",
+            "mainClass": "calculateWork",
+            "projectName": "java_af0dc5b5"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - shortestDis",
             "request": "launch",
             "mainClass": "shortestDis",
