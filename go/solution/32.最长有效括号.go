@@ -1,25 +1,20 @@
 /*
- * @lc app=leetcode.cn id=22 lang=golang
+ * @lc app=leetcode.cn id=32 lang=golang
  *
- * [22] 括号生成
+ * [32] 最长有效括号
  */
 
 // @lc code=start
-func generateParenthesis(n int) []string {
-	length:=n*2
-	map1:=map([byte]byte){')':'('}
-	var res []string
-	var str string
-	for {
-		for i:=0;i<length;i++ {
-			str[i]='('
-		}//生成所有可能的字符串
-		if isVali(str) {//如果有效添加进去
-			res=append(res,str)
+func longestValidParentheses(s string) int {
+	max, left, right := 0, 0, len(s)
+	for i := 0; i < len(s); i++ {
+		for j := len(s); j > i; j-- {
+			if isValid(s[i:j]) && left-right+1 > max {
+				max = left - right + 1
+			}
 		}
 	}
-	return res
-	
+	return max
 }
 func isValid(s string) bool {
 	var stack []byte
@@ -38,5 +33,5 @@ func isValid(s string) bool {
 	}
 	return len(stack) == 0
 }
-// @lc code=end
 
+// @lc code=end
