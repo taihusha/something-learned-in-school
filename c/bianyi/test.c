@@ -1,7 +1,10 @@
+int a,b;
 int e[2];
+int e[2][3];
 int func1(int a)
 {
 	int q[3];
+	int q[2][3];
 	int b, c=3,d;
 	if (a == 0)
 		return 1;

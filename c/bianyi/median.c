@@ -263,9 +263,21 @@ int fill_Temp(char *name,int level,int type,char flag,int offset) {
 
 int LEV=0;      //层号
 int func_size;  //1个函数的活动记录大小
-
+int OUPUTWIDTH(int a) {
+	switch (a) {
+	case INT:
+		//width of char is 4 for word alignment
+	case CHAR:
+		return 4;
+	case FLOAT:
+		return 8;
+	default:
+		return 4;
+	}
+}
 void ext_var_list(struct ASTNode *T){  //处理变量列表
     int rtn,num=1;
+    struct ASTNode *T0;
     switch (T->kind){
         case EXT_DEC_LIST:
                 T->ptr[0]->type=T->type;              //将类型属性向下传递变量结点
@@ -284,6 +296,20 @@ void ext_var_list(struct ASTNode *T){  //处理变量列表
             else T->place=rtn;
             T->num=1;
             break;
+        case ARRAY_DEF:
+                    T->width = OUPUTWIDTH(T->ptr[0]->type) * T->ptr[1]->type_int;
+                    T->ptr[0]->offset = T->offset;
+                    T0=T;
+                    while(T0->ptr[0]->kind!=ID){
+                        T0=T0->ptr[0];
+                    }
+                    rtn = fillSymbolTable(T0->ptr[0]->type_id, newAlias(), LEV, T->type, 'V', 0); //函数不在数据区中分配单元，偏移量为0
+                    if (rtn == -1)
+                        semantic_error(T->pos, T->type_id, "数组重复定义");
+                    else
+                        T->place = rtn;
+                    //semantic_Analysis(T->ptr[0]); 
+                break;
         }
     }
 
@@ -430,18 +456,7 @@ void boolExp(struct ASTNode *T){  //布尔表达式，参考文献[2]p84的思�
 	}
 }
 
-int OUPUTWIDTH(int a) {
-	switch (a) {
-	case INT:
-		//width of char is 4 for word alignment
-	case CHAR:
-		return 4;
-	case FLOAT:
-		return 8;
-	default:
-		return 4;
-	}
-}
+
 void Exp(struct ASTNode *T)
 {//处理基本表达式，参考文献[2]p82的思想
   int rtn,num,width;
@@ -905,9 +920,15 @@ void semantic_Analysis(struct ASTNode *T)
                     else if (T0->ptr[0]->kind==ARRAY_DEF)
                     {
                        // printf("%s\n",T->ptr[0]->ptr[0]->type_id);
+                       struct ASTNode *T1;
                         T0->width = OUPUTWIDTH(T0->ptr[0]->ptr[0]->type) * T0->ptr[0]->ptr[1]->type_int;
                         T0->ptr[0]->offset = T->offset;
-                        rtn = fillSymbolTable(T0->ptr[0]->ptr[0]->type_id, newAlias(), LEV, T0->type, 'V', 0); //函数不在数据区中分配单元，偏移量为0
+                        T1=T0->ptr[0];
+                        while(T1->ptr[0]->kind!=ID){
+                            T1=T1->ptr[0];
+                        }
+                        //rtn = fillSymbolTable(T0->ptr[0]->type_id, newAlias(), LEV, T->type, 'V', 0); //函数不在数据区中分配单元，偏移量为0
+                        rtn = fillSymbolTable(T1->ptr[0]->type_id, newAlias(), LEV, T0->type, 'V', 0); //函数不在数据区中分配单元，偏移量为0
                         if (rtn == -1)
                              semantic_error(T0->pos, T0->type_id, "数组重复定义");
                         else
@@ -915,17 +936,6 @@ void semantic_Analysis(struct ASTNode *T)
                     }
                     T0=T0->ptr[1];
                     }
-                break;
-    case ARRAY_DEF:
-                    printf("arraay\n");
-                    T->width = OUPUTWIDTH(T->ptr[0]->type) * T->ptr[1]->type_int;
-                    T->ptr[0]->offset = T->offset;
-                    rtn = fillSymbolTable(T->ptr[0]->type_id, newAlias(), LEV, T->ptr[0]->type, 'V', 0); //函数不在数据区中分配单元，偏移量为0
-                    if (rtn == -1)
-                        semantic_error(T->pos, T->type_id, "数组重复定义");
-                    else
-                        T->place = rtn;
-                    semantic_Analysis(T->ptr[0]); 
                 break;
 	case STM_LIST:
                 if (!T->ptr[0]) { T->code=NULL; T->width=0; break;}   //空语句序列
