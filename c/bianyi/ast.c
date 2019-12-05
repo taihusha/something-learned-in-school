@@ -1,7 +1,7 @@
 #include "def.h"
 #include "parser.tab.h"
 
-struct ASTNode * mknode(int num,int kind,int pos,...){
+struct ASTNode * mknode(int num,int kind,int pos,...){//num 子树个数，pos 子树位置，kind 子树类型
     struct ASTNode *T=(struct ASTNode *)calloc(sizeof(struct ASTNode),1);
     int i=0;
     T->kind=kind;
@@ -31,7 +31,11 @@ void display(struct ASTNode *T,int indent)
                         printf("%*c变量名：\n",indent+3,' ');
                         display(T->ptr[1],indent+6);        //显示变量列表
                         break;
-	case TYPE:          printf("%*c类型： %s\n",indent,' ',T->type_id);
+	case TYPE_I:          printf("%*c类型： %s\n",indent,' ',T->type_id);
+                        break;
+    case TYPE_F:          printf("%*c类型： %s\n",indent,' ',T->type_id);
+                        break;
+    case TYPE_C:          printf("%*c类型： %s\n",indent,' ',T->type_id);
                         break;
     case EXT_DEC_LIST:  display(T->ptr[0],indent);     //依次显示外部变量名，
                         display(T->ptr[1],indent);     //后续还有相同的，仅显示语法树此处理代码可以和类似代码合并
@@ -88,6 +92,10 @@ void display(struct ASTNode *T,int indent)
                         printf("%*cELSE子句：(%d)\n",indent+3,' ',T->pos);
                         display(T->ptr[2],indent+6);      //显示else子句
                         break;
+    case BREAK:         printf("%*cbreak语句: (%d)\n",indent,' ',T->pos);
+                        break;
+    case CONTINUE:      printf("%*ccontinue语句:(%d)\n",indent,' ',T->pos);
+                        break;
     case DEF_LIST:      display(T->ptr[0],indent);    //显示该局部变量定义列表中的第一个
                         display(T->ptr[1],indent);    //显示其它局部变量定义
                         break;
@@ -105,6 +113,14 @@ void display(struct ASTNode *T,int indent)
                                 printf("%*c %s ASSIGNOP\n ",indent+6,' ',T0->ptr[0]->ptr[0]->type_id);
                                 display(T0->ptr[0]->ptr[1],indent+strlen(T0->ptr[0]->ptr[0]->type_id)+7);        //显示初始化表达式
                                 }
+                            else if(T0->ptr[0]->kind==ARRAY_DEF)
+                            {
+                                printf("%*c ARRAY\n",indent+6,' ');
+                                display(T0->ptr[0],indent+9);
+                                 // printf("%*clength: %d\n",indent+3,' ',T->type_int);
+                                display(T0->ptr[1],indent+9);
+                            }
+                            
                             T0=T0->ptr[1];
                             }
                         break;
@@ -114,17 +130,25 @@ void display(struct ASTNode *T,int indent)
                         break;
 	case FLOAT:	        printf("%*cFLAOT：%f\n",indent,' ',T->type_float);
                         break;
+    case CHAR:          printf("%*cCHAR: %c\n",indent,' ',T->type_char);
+                        break;
 	case ASSIGNOP:
 	case AND:
 	case OR:
 	case RELOP:
-	case PLUS:
-	case MINUS:
-	case STAR:
+	case PLUS:      
+	case MINUS:     
+	case STAR:      
 	case DIV:
                     printf("%*c%s\n",indent,' ',T->type_id);
                     display(T->ptr[0],indent+3);
                     display(T->ptr[1],indent+3);
+                    break;
+    case DPLUS:     printf("%*c%s\n",indent,' ',T->type_id);
+                    display(T->ptr[0],indent+3);
+                    break;
+    case DMINUS:    printf("%*c%s\n",indent,' ',T->type_id);
+                    display(T->ptr[0],indent+3);
                     break;
 	case NOT:
 	case UMINUS:    printf("%*c%s\n",indent,' ',T->type_id);
@@ -133,6 +157,12 @@ void display(struct ASTNode *T,int indent)
     case FUNC_CALL: printf("%*c函数调用：(%d)\n",indent,' ',T->pos);
                     printf("%*c函数名：%s\n",indent+3,' ',T->type_id);
                     display(T->ptr[0],indent+3);
+                    break;
+    case ARRAY_DEF:
+    case ARRAY_EXP: 
+                    display(T->ptr[0],indent);
+                   // printf("%*clength: %d\n",indent+3,' ',T->type_int);
+                    display(T->ptr[1],indent+3);
                     break;
 	case ARGS:      i=1;
                     while (T) {  //ARGS表示实际参数表达式序列结点，其第一棵子树为其一个实际参数表达式，第二棵子树为剩下的
@@ -147,4 +177,4 @@ void display(struct ASTNode *T,int indent)
                     break;
          }
       }
-} 
+}
