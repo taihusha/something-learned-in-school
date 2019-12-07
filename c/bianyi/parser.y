@@ -21,7 +21,7 @@ void display(struct ASTNode *,int);
 };
 
 //  %type 定义非终结符的语义值类型
-%type  <ptr> program ExtDefList ExtDef  Specifier ExtDecList FuncDec CompSt VarList VarDec ParamDec Stmt StmList DefList Def DecList Dec Exp Args //CaseStmtList0 CaseStmtList
+%type  <ptr> program ExtDefList ExtDef  Specifier ExtDecList FuncDec CompSt VarList VarDec ParamDec Stmt StmList ForDec DefList Def DecList Dec Exp Args //CaseStmtList0 CaseStmtList
 
 //% token 定义终结符的语义值类型
 %token <type_int> INT              /*指定INT的语义值是type_int，有词法分析得到的数值*/
@@ -32,7 +32,7 @@ void display(struct ASTNode *,int);
 %token DPLUS DMINUS LP RP LC RC SEMI COMMA LB RB QM LINECOM BLOCKCOM  ARRAY_DEF ARRAY_EXP  /*用bison对该文件编译时，带参数-d，生成的.tab.h中给这些单词进行编码，可在lex.l中包含parser.tab.h使用这些单词种类码*/
 %token PLUS MINUS STAR DIV ASSIGNOP AND OR NOT IF ELSE WHILE RETURN BREAK CONTINUE FOR SWITCH CASE COLON DEFAULT
 /*以下为接在上述token后依次编码的枚举常量，作为AST结点类型标记*/
-%token EXT_DEF_LIST EXT_VAR_DEF FUNC_DEF FUNC_DEC EXT_DEC_LIST PARAM_LIST PARAM_DEC VAR_DEF DEC_LIST DEF_LIST COMP_STM STM_LIST EXP_STMT IF_THEN IF_THEN_ELSE
+%token EXT_DEF_LIST EXT_VAR_DEF FUNC_DEF FUNC_DEC EXT_DEC_LIST PARAM_LIST PARAM_DEC VAR_DEF DEC_LIST DEF_LIST COMP_STM STM_LIST FOR_DEC EXP_STMT IF_THEN IF_THEN_ELSE
 %token FUNC_CALL ARGS FUNCTION PARAM ARG CALL LABEL GOTO JLT JLE JGT JGE EQ NEQ 
 
 
@@ -52,7 +52,7 @@ void display(struct ASTNode *,int);
 
 %%
 
-program: ExtDefList    { display($1,0); semantic_Analysis0($1);}     //显示语法树,语义分析
+program: ExtDefList    {  semantic_Analysis0($1);}     //显示语法树,语义分析display($1,0);
          ; 
 ExtDefList: {$$=NULL;}
           | ExtDef ExtDefList {$$=mknode(2,EXT_DEF_LIST,yylineno,$1,$2);}   //每一个EXTDEFLIST的结点，其第1棵子树对应一个外部变量声明或函数
@@ -95,7 +95,11 @@ Stmt:   Exp SEMI    {$$=mknode(1,EXP_STMT,yylineno,$1);}
       | WHILE LP Exp RP Stmt {$$=mknode(2,WHILE,yylineno,$3,$5);}
       | BREAK SEMI {$$=mknode(1,BREAK,yylineno);}
       | CONTINUE SEMI {$$=mknode(1,CONTINUE,yylineno);}
+      | FOR LP ForDec RP Stmt {$$=mknode(2,FOR,yylineno,$3,$5);}
       ;
+ForDec: Exp SEMI Exp SEMI Exp {$$=mknode(3,FOR_DEC,yylineno,$1,$3,$5);}
+       | SEMI Exp SEMI {$$=mknode(1,FOR_DEC,yylineno,$2);}
+       ;
 DefList: {$$=NULL; }
         | Def DefList {$$=mknode(2,DEF_LIST,yylineno,$1,$2);}
         | error SEMI   {$$=NULL;}

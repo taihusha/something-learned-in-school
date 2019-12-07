@@ -93,25 +93,26 @@
      DEF_LIST = 309,
      COMP_STM = 310,
      STM_LIST = 311,
-     EXP_STMT = 312,
-     IF_THEN = 313,
-     IF_THEN_ELSE = 314,
-     FUNC_CALL = 315,
-     ARGS = 316,
-     FUNCTION = 317,
-     PARAM = 318,
-     ARG = 319,
-     CALL = 320,
-     LABEL = 321,
-     GOTO = 322,
-     JLT = 323,
-     JLE = 324,
-     JGT = 325,
-     JGE = 326,
-     EQ = 327,
-     NEQ = 328,
-     UMINUS = 329,
-     LOWER_THEN_ELSE = 330
+     FOR_DEC = 312,
+     EXP_STMT = 313,
+     IF_THEN = 314,
+     IF_THEN_ELSE = 315,
+     FUNC_CALL = 316,
+     ARGS = 317,
+     FUNCTION = 318,
+     PARAM = 319,
+     ARG = 320,
+     CALL = 321,
+     LABEL = 322,
+     GOTO = 323,
+     JLT = 324,
+     JLE = 325,
+     JGT = 326,
+     JGE = 327,
+     EQ = 328,
+     NEQ = 329,
+     UMINUS = 330,
+     LOWER_THEN_ELSE = 331
    };
 #endif
 
@@ -133,7 +134,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 137 "parser.tab.h"
+#line 138 "parser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

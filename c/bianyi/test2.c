@@ -12,15 +12,17 @@ int main()
 	float a;
 	char h = 'a';
 	vv;//vv 变量未定义
+	
 	m;//m 是函数名，类型不匹配
 	!a;
+	j='a';//赋值类型不匹配
 	a&&i;
 	v1();//在10行,v1 函数未定义
 	a + 7;//操作数类型不匹配
 	10 = i;//左值问题
-	i = a;//赋值类型不匹配
+	i+j=3;
 	i(10);//i 不是一个函数
-	return 0.2;//返回值类型错误
+	//return 0.2;//返回值类型错误
 }
 int n(int m1,int m1)//参数名重复定义
 {
@@ -29,7 +31,7 @@ int n(int m1,int m1)//参数名重复定义
 
 int func(int i) 
 {return i;}
-
+	
 int func()//函数重复定义
 {
 	char c='a';

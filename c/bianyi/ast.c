@@ -72,11 +72,18 @@ void display(struct ASTNode *T,int indent)
 	case STM_LIST:      display(T->ptr[0],indent);      //显示第一条语句
                         display(T->ptr[1],indent);        //显示剩下语句
                         break;
-	case WHILE:         printf("%*c循环语句：(%d)\n",indent,' ',T->pos);
-                        printf("%*c循环条件：\n",indent+3,' ');
-                        display(T->ptr[0],indent+6);      //显示循环条件
-                        printf("%*c循环体：(%d)\n",indent+3,' ',T->pos);
-                        display(T->ptr[1],indent+6);      //显示循环体
+	case WHILE:         
+    case FOR:
+                        printf("%*c循环语句：\n", indent, ' ');
+                        printf("%*c循环条件：\n", indent + 3, ' ');
+                        display(T->ptr[0], indent + 6); //显示循环条件
+                        printf("%*c循环体：\n", indent + 3, ' ');
+                        display(T->ptr[1], indent + 6); //显示循环体
+                        break;
+    case FOR_DEC:
+                        display(T->ptr[0], indent + 6);
+                        display(T->ptr[1], indent + 6);
+                        display(T->ptr[2], indent + 6);
                         break;
 	case IF_THEN:       printf("%*c条件语句(IF_THEN)：(%d)\n",indent,' ',T->pos);
                         printf("%*c条件：\n",indent+3,' ');
