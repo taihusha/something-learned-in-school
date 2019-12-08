@@ -4,6 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}/",
+                "D:/lib/liby.a",
+                "D:/lib/libfl.a",
                 "D:/lib/gcc/mingw32/8.2.0/include",
                 "D:/lib/gcc/mingw32/8.2.0//include/c++",
                 "D:/lib/gcc/mingw32/8.2.0/include/c++/mingw32",
@@ -23,6 +25,8 @@
                 "path": [
                     "${workspaceRoot}",
                     "D:/lib/gcc/mingw32/8.2.0/include",
+                    "D:/lib/liby.a",
+                    "D:/lib/libfl.a",
                     "D:/lib/gcc/mingw32/8.2.0//include/c++",
                     "D:/lib/gcc/mingw32/8.2.0/include/c++/mingw32",
                     "D:/lib/gcc/mingw32/8.2.0/include/c++/backward",

@@ -15,6 +15,9 @@ int main()
 {
     int i,k;
     long sum=0,*p=&sum;
+    char *s;
+    scanf("%s",&s);
+    printf("%s",s);
     scanf("%d",&k);
     for(i=1;i<=k;i++){
         sum+=fabonacci(i);
