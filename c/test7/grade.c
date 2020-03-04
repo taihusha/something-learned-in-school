@@ -42,32 +42,35 @@ void creatList(struct student **headp){
     printf("end with 0\n");
     for(;;){
         scanf("%ld",&p->num);
-        if(p->num==0)break;
+        if(p->num==0) break;
         scanf("%s%d%d%d%d",p->s,&p->g_e,&p->g_m,&p->g_p,&p->g_c);
         p=(struct student *)malloc(sizeof(struct student));
         tail->next=p;
         tail=p;
+        printf("next\n");
     }
     tail->next=NULL;
+    printf("over\n");
 }
 void outputList(struct student **headp){
     struct student *p=*headp;
     while (p->next!=NULL)
     {
-        printf("num %ld name %s ENG %d MATH %d PHY %d C %d\n",p->s,p->g_e,p->g_m,p->g_p,p->g_c);
+        printf("num %ld name %s ENG %d MATH %d PHY %d C %d\n",p->num,p->s,p->g_e,p->g_m,p->g_p,p->g_c);
         p=p->next;
     }
     
 }
 void correctList(struct student **headp){
     struct student *p=*headp;
+    char c;
     printf("please input the name\n");
     char n[10];
     scanf("%s",n);
     for(;p->next!=NULL&&strcmp(p->s,n);p=p->next)
     ;
     if(!strcmp(p->s,n)){
-       printf("find num %ld name %s ENG %d MATH %d PHY %d C %d\n",p->s,p->g_e,p->g_m,p->g_p,p->g_c);
+       printf("find num %ld name %s ENG %d MATH %d PHY %d C %d\n",p->num,p->s,p->g_e,p->g_m,p->g_p,p->g_c);
     }
     else if(p->next==NULL){
         printf("not found\n");
@@ -80,7 +83,8 @@ void correctList(struct student **headp){
     printf("4:MATH\n");
     printf("5:PHY\n");
     printf("6:C\n");
-    char c=getchar();
+    c=getchar();
+    c=getchar();
     printf("please reinput\n");
     switch (c)
     {

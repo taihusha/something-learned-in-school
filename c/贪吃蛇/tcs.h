@@ -5,7 +5,7 @@
 #include <conio.h>
 #include <string.h>
 
-HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); //获取句柄
+extern HANDLE hConsole; //获取句柄
 
 #define U 1
 #define D 2
@@ -26,45 +26,47 @@ struct snake {//蛇的数据结构
 	int y;
 	struct snake *previous;
 	struct snake *next;
-}*head = NULL, *tail = NULL;
+};
+extern snake *head,*tail;
 
-struct savescore {
-	char name[20];
-	int grade;
-}person[3], temp, t;
+extern int end , length, score , count ;
+extern int str[20][40];
+extern int direction;
+extern int sleeptime;//每次运行的时间间隔
 
-
-int poison_x, poison_y;
-int rand_num_x[10] = { 0 }, rand_num_y[10] = { 0 };
-int end = 0, length = 0, score = 0, count = 0;
-int str[20][40];
-int direction = R;
-int sleeptime = 400;//每次运行的时间间隔
-FILE * mem;     //游戏存档文件句柄
-FILE *fp;
-
+/*page*/
+void Pos(int x, int y);
+void Setcolor(int color);
 void FirstPage();
 void Choose();
 void ChooseLevel();
+/*map*/
 void CreateMap();
 void MarkMap();
-void AddSnake(int a, int b);
-void CreateSnake();
-void DeleteTail();
 void CreateFood();
 void CreateMine();
 void CreatePoison();
 void Shine();
+
+/*snake*/
+void AddSnake(int a, int b);
+void CreateSnake();
+void DeleteTail();
 void SnakeMove();
-void pause();
-void RunGame();
+
+/*game*/
 void init(int n);
+void printText();
+void RunGame();
+void pause();
 void gaming(int n);
 void level(int n);
 void Level_1();
 void Level_2();
 void Level_3();
 void EndGame();
+
+/*sava_load*/
 void Save();
 void Load();
 void ScoreSave();
