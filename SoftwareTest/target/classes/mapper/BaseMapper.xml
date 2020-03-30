@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.BaseMapper">
+    <select id="listSceneInfo" parameterType="java.util.Map" resultType="entity.Scene">
+        select * from
+        (select A.*,B.like_num ,D.comment_num,E.image_urls,IFNULL(c.curr_user_like,'') curr_user_like
+        FROM info A
+        LEFT JOIN (select scene_id,count(user_id) like_num
+        FROM like_tab GROUP BY scene_id order by like_num desc) B
+        ON A.id = B.scene_id
+        LEFT JOIN (select scene_id,1 curr_user_like
+        FROM like_tab
+        WHERE user_id = #{userId}) C
+        ON B.scene_id = C.scene_id
+        LEFT JOIN (select info_id,count(id) comment_num
+        FROM comments GROUP BY info_id) D
+        ON A.id = D.info_id
+        LEFT JOIN (select info_id,GROUP_CONCAT(url) image_urls
+        FROM image GROUP BY info_id) E
+        ON A.id = E.info_id ) root
+        <if test="search_word != null and search_word != ''">
+            where name like "%"#{search_word}"%"
+        </if>
+        <if test="sortByLike != null and sortByLike != ''">
+            order by like_num desc
+        </if>
+        <if test="sortByComment != null and sortByComment != ''">
+            order by comment_num desc
+        </if>
+    </select>
+    
+    <select id="getUserInfo" parameterType="java.util.Map" resultType="entity.Visitor">
+        select * from user_tab where username = #{username}
+    </select>
+
+    <select id="getLikeCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(*) from like_tab
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="sceneId != null">
+                and scene_id = #{sceneId}
+            </if>
+        </where>
+    </select>
+
+    <select id="getSceneInfoById" parameterType="java.lang.Integer" resultType="entity.Scene">
+        select A.*,B.image_urls from info A
+        LEFT JOIN (select info_id,GROUP_CONCAT(url) image_urls
+                FROM image GROUP BY info_id) B
+        ON A.id = B.info_id
+        where id = #{value}
+    </select>
+
+    <select id="listCommentsBySceneId" parameterType="java.lang.Integer" resultType="entity.Comment">
+        select A.content,A.create_time,B.username from comments A
+        LEFT JOIN user_tab B on A.user_id = B.id
+        where info_id = #{value}
+    </select>
+
+    <insert id="insertLike" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+      insert into like_tab (user_id,scene_id)
+      values (#{userId},#{sceneId})
+    </insert>
+
+    <insert id="insertComment" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+      insert into comments (user_id,info_id,content,create_time)
+      values (#{userId},#{sceneId},#{content},#{createTime})
+    </insert>
+
+    <delete id="deleteLike" parameterType="java.util.Map">
+        delete from like_tab where user_id = #{userId} and scene_id = #{sceneId}
+    </delete>
+
+</mapper>
