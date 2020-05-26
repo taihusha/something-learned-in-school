@@ -6,7 +6,10 @@ type MyQueue struct {
 
 /** Initialize your data structure here. */
 func Constructor() MyQueue {
-	return MyQueue{Write: make([]int, 0), Read: make([]int, 0)}
+	return MyQueue{
+		Write: make([]int, 0), 
+		Read: make([]int, 0)
+	}
 }
 
 /** Push element x to the back of queue. */
