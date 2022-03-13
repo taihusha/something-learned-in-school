@@ -1,0 +1,44 @@
+<image class="background" src='{{image}}' mode="aspectFill" style="opacity: {{opacity}}"/>
+<image class="background_back" src='{{imageBack}}' mode="aspectFill"/>
+<view class="home" hover-class="home_tapped" bindtap="toIndex"/>
+<image class='icon' src='/pages/res/home.png' mode="aspectFill"></image>
+<view class="userinfo">
+  <button class="login_button" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="opacity:{{0}}"></button>
+  <block wx:else>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+  </block>
+</view>
+<view class="title">
+  <text class="score-title" wx:if = "{{!isWenda}}">分数</text>
+  <text class="score-num" wx:if = "{{!isWenda}}">{{totalScore}}</text>
+  <text class="score-remark">{{totalScore==150?remark[0]:(totalScore>=120?remark[1]:(totalScore>=90?remark[2]:remark[3]))}}</text>
+</view>
+<view class="bg_panel" wx:if="{{wrongList.length > 0}}" style="opacity:{{0.3}}"></view>
+<view class="list">
+  <scroll-view class="status-lists" wx:if="{{wrongList.length > 0}}" scroll-y="true">
+    <view class="wrong">点击序号可查看错误的题目</view>
+    <block wx:for="{{wrongList}}" wx:key="problemId">
+      <view bindtap="toView" data-option="{{index}}" class="status-list" hover-class='active'>{{item.Id+1}}</view>
+    </block>
+  </scroll-view>
+</view>
+<view wx:if="{{wrongList.length > 0}}">
+  <view class="again" bindtap="again">
+    <view class="func_button" hover-class="func_tapped_left" style="opacity:{{0.3}}"/>
+    <view class="func_panel_left" style="opacity:{{0.4}}"/>
+    <text class="func_text" >再刷一次</text>
+  </view>
+  <view class="cuoti" bindtap="wrong">
+    <view class="func_button" hover-class="func_tapped_right" style="opacity:{{0.3}}"/>
+    <view class="func_panel_right" style="opacity:{{0.4}}"/>
+    <text class="func_text" >错题练习</text>
+  </view>
+</view>
+<view wx:if="{{wrongList.length == 0}}">
+  <view class="again_full" bindtap="again">
+    <view class="func_button_full" hover-class="func_tapped_full" style="opacity:{{0.3}}"/>
+    <view class="func_panel_full" style="opacity:{{0.4}}"/>
+    <text class="func_text_full">再刷一次，证明你的牛逼</text>
+  </view>
+</view>
+ <wrong-modal class = "modalShow" modalShow="{{modalShow}}" wrongProblem="{{wrongProblem}}"></wrong-modal>

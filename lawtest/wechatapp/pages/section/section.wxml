@@ -1,0 +1,33 @@
+<view class="navibar"/>
+<view class="bg_panel" style="opacity:{{0.7}}">
+  <image class="background" src="/pages/res/62740716_p1.png" mode="aspectFill"></image>
+</view>
+<text class="title">章节练习</text>
+<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+<view class="space">　</view>
+<scroll-view class="list_panel" scroll-y="true">
+  <view wx:for = "{{knowLedgePoints}}" wx:key = "key" >
+    <view class = "testPaper" hover-class='testpaper_tapped' bindtap = "onExpland" data-index = "{{index}}">
+      <view class="year">{{item.content}}</view>
+      <view class="space_testpaper"></view>
+      <view class="arrow" style="transform: rotate({{item.isOpen?135:45}}deg);"></view>
+    </view>
+    <view class = "testPaperNavi" hidden = "{{!item.isOpen}}" >
+      <view class='space_button'>　</view>
+      <view class = "button_view">
+        <button class="paper_button" hover-class='paper_button_tapped' catchtap="onShowPaper" data-num="1" data-content="{{item.content}}">单项
+          <text class="xzt">选择题</text>
+          <text class="{{item.done[0]==item.radio?'score':'incomp'}}">{{item.done[0]}}/{{item.radio}}</text>
+        </button>
+        <button class="paper_button" hover-class='paper_button_tapped' catchtap="onShowPaper" data-num="2" data-content="{{item.content}}">多项
+          <text class="xzt">选择题</text>
+          <text class="{{item.done[1]==item.multi?'score':'incomp'}}">{{item.done[1]}}/{{item.multi}}</text>
+        </button>
+        <button class="paper_button" hover-class='paper_button_tapped' catchtap="onShowPaper" data-num="3" data-content="{{item.content}}">不定项
+          <text class="xzt">选择题</text>
+          <text class="{{item.done[2]==item.unsure?'score':'incomp'}}">{{item.done[2]}}/{{item.unsure}}</text>
+        </button>
+      </view>
+    </view>
+  </view>
+</scroll-view>

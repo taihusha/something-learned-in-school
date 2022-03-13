@@ -1,0 +1,172 @@
+Page{
+  background-color: #323232;
+}
+
+.background{
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  position: fixed;
+}
+
+.background_back{
+  width: 100%;
+  height: 100%;
+  z-index: -101;
+  position: fixed;
+}
+
+.bg_panel{
+  width: 100%;
+  height: 450rpx;
+  z-index: 0;
+  position: fixed;
+  background-color: black;
+}
+
+.title{
+  margin-top: 20%;
+  margin-left: 10%;
+  z-index: 100;
+  position: fixed;
+  color: white;
+  font-size: 65rpx;
+  letter-spacing: 3rpx;
+  font-weight: 500;
+}
+
+.motto{
+  width: 80%;
+  margin-top: 40%;
+  margin-left: 10%;
+  z-index: 100;
+  position: fixed;
+  color: white;
+  font-size: 35rpx;
+  letter-spacing: 2rpx;
+}
+
+.func_1{
+  margin-top: 70%;
+  margin-left: 10%;
+  width: 36%;
+  height: 300rpx;
+  z-index: -1;
+  position: fixed;
+}
+
+.func_2{
+  margin-top: 70%;
+  margin-left: 54%;
+  width: 36%;
+  height: 300rpx;
+  z-index: -1;
+  position: fixed;
+}
+
+.func_3{
+  margin-top: 118%;
+  margin-left: 10%;
+  width: 36%;
+  height: 300rpx;
+  z-index: -1;
+  position: fixed;
+}
+
+.func_4{
+  margin-top: 118%;
+  margin-left: 54%;
+  width: 36%;
+  height: 300rpx;
+  z-index: -1;
+  position: fixed;
+}
+
+.func_button{
+  width: 36%;
+  height: 300rpx;
+  z-index: 101;
+  position: fixed;
+}
+
+.func_tapped{
+  width: 36%;
+  height: 300rpx;
+  z-index: 101;
+  position: fixed;
+  background-color: black;
+}
+
+.func_panel{
+  width: 36%;
+  height: 300rpx;
+  z-index: 0;
+  position: fixed;
+  background-color: black;
+}
+
+.icon{
+  width: 230rpx;
+  height: 230rpx;
+  margin-left: 20rpx;
+  margin-top: 0rpx;
+  z-index: 100;
+  position: fixed;
+  align-content: center;
+  justify-content: center;
+  size: 200rpx;
+}
+
+.func_text{
+  margin-top: 220rpx;
+  margin-left: 65rpx;
+  align-content: center;
+  z-index: 100;
+  position: fixed;
+  color: white;
+  font-size: 35rpx;
+  letter-spacing: 2rpx;
+  font-weight: 500;
+}
+
+.login{
+  width: 120rpx;
+  height: 60rpx;
+  margin-left: 81%;
+  margin-top: 23%;
+  z-index: 100;
+  position: fixed;
+  border-radius: 20%;
+  color: white;
+  letter-spacing: 3rpx;
+  font-size: 35rpx;
+}
+
+.login_button{
+  width: 120rpx;
+  height: 60rpx;
+  margin-left: 81%;
+  margin-top: 23%;
+  z-index: 101;
+  position: fixed;
+  border-radius: 20%;
+}
+
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 80%;
+  margin-top: 19%;
+  z-index: 100;
+  position: fixed;
+  border-radius: 50%;
+}
+
+.version{
+  margin-top: 172%;
+  margin-left: 88%;
+  z-index: 100;
+  position: fixed;
+  color: white;
+  letter-spacing: 2rpx;
+}

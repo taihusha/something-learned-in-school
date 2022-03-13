@@ -1,0 +1,38 @@
+<!--packageA/pages/wrong_pro/wrong_pro.wxml-->
+<wxs src='../wrongpro/util.wxs' module='tools'/>
+<view class="navibar"/>
+<view class="bg_panel" style="opacity:{{0.7}}">
+  <image class="background" src="/pages/res/62740716_p1.png" mode="aspectFill"></image>
+</view>
+<text class="title">收藏列表</text>
+<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+<view class="space">　</view>
+<!--选择框-->
+<view class = "section">
+  <view class="section1">
+    <picker class="section1_picker" bindchange="bindOriginChange" range="{{origins}}">
+      <view class="section1_content">{{tools.substring(origins[origin_index], 15)}}</view>
+    </picker>
+  </view>
+  <view class="section2">
+    <picker class="section2_picker" bindchange="bindDateChange"   range="{{times}}">
+    <view class="section2_content">{{times[time_index]}}</view>
+    </picker>
+  </view>
+</view>
+<view class="list_bg">
+<scroll-view class="list_panel" scroll-y="true">
+  <show-wrong class = "showProblem" modalShow="{{modalShow}}" wrongProblem ="{{wrongProblem}}" bindmyevent="onMyEvent"></show-wrong>
+  <view class="space">　</view>
+  <view wx:for = "{{wrong_pro}}" wx:key = "key" >
+    <view wx:if = "{{!item.isWrong}}" class = "wrongpro" bindtap = "showProblem" data-problem = "{{item}}" >
+      <view class="problem">{{tools.substring(item.q,16)}}</view>
+      <view class="probleminf">
+        <view class="problemorigin">{{tools.substring(item.origin,15)}}</view>
+        <view class="problemtime">{{item.time}}</view>
+      </view>
+      <view class="sepline"/>
+    </view>
+  </view>
+</scroll-view>
+</view>

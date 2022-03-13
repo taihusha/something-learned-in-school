@@ -1,0 +1,38 @@
+<image class="background" src='{{image}}' mode="aspectFill" style="opacity: {{opacity}}"/>
+<image class="background_back" src='{{imageBack}}' mode="aspectFill"/>
+<view class="bg_panel" style="opacity:{{0.3}}"></view>
+<text class="title">法考图书馆</text>
+<view class="login">登录</view>
+<button class="login_button" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="opacity:{{0}}"></button>
+  <block wx:else>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover" bindtap="shouchang"></image>
+  </block>
+<text class="motto">{{motto[mottoIndex]}}</text>
+
+<view class="func_opt">
+  <view class="func_1">
+    <view class="func_button" hover-class="func_tapped" bindtap='zhenti' style="opacity:{{0.3}}"></view>
+    <view class="func_panel" style="opacity:{{0.4}}"></view>
+    <text class="func_text">真题模拟</text>
+    <image class='icon' src='/pages/res/mokao.png' mode="aspectFill"></image>
+  </view>
+  <view class="func_2">
+    <view class="func_button" hover-class="func_tapped" bindtap='tiku' style="opacity:{{0.3}}"></view>
+    <view class="func_panel" style="opacity:{{0.4}}"></view>
+    <text class="func_text">题库刷题</text>
+    <image class='icon' src='/pages/res/suiji.png' mode="aspectFill"></image>
+  </view>
+  <view class="func_3">
+    <view class="func_button" hover-class="func_tapped" bindtap='zhangjie' style="opacity:{{0.3}}"></view>
+    <view class="func_panel" style="opacity:{{0.4}}"></view>
+    <text class="func_text">章节练习</text>
+    <image class='icon' src='/pages/res/zhangjie.png' mode="aspectFill"></image>
+  </view>
+  <view class="func_4">
+    <view class="func_button" hover-class="func_tapped" bindtap='cuoti' style="opacity:{{0.3}}"></view>
+    <view class="func_panel" style="opacity:{{0.4}}"></view>
+    <text class="func_text">错题练习</text>
+    <image class='icon' src='/pages/res/cuoti.png' mode="aspectFill"></image>
+  </view>
+</view>
+<text class="version">v1.0</text>

@@ -1,0 +1,160 @@
+Page{
+  background-color: black;
+}
+
+.navibar{
+  width: 100%;
+  height: 300rpx;
+  position: fixed;
+  z-index: 1;
+  background-color: black;
+}
+
+.background{
+  width: 100%;
+  height: 1333rpx;
+  z-index: 2;
+}
+
+.bg_panel{
+  width: 100%;
+  height: 300rpx;
+  position: fixed;
+  z-index: 3;
+}
+
+.title{
+  position: fixed;
+  z-index: 100;
+  margin-top: 20%;
+  margin-left: 10%;
+  color: white;
+  font-size: 65rpx;
+  letter-spacing: 3rpx;
+  font-weight: 500;
+}
+
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  z-index: 4;
+  margin-top: 19%;
+  margin-left: 80%;
+  border-radius: 50%;
+}
+
+.space{
+  font-size: 15rpx;
+}
+
+.space_button{
+  height: 2%;
+  background-color: black;
+}
+
+.list_panel{
+  max-height: 1014rpx;
+  margin-top: 300rpx;
+  position: relative;
+  z-index: 100;
+  overflow: auto;
+  background-color: black;
+}
+
+.testPaper{
+  height: 140rpx;
+  display: flex;
+  align-items: center;
+  color: #aaa; 
+  font-size: 45rpx;
+  border-bottom: 2rpx #aaa; 
+  background-color: #161616
+}
+
+.testpaper_tapped{
+  height: 140rpx;
+  display: flex;
+  align-items: center;
+  color: #aaa; 
+  font-size: 45rpx;
+  border-bottom: 2rpx #aaa; 
+  background-color: #323232;
+}
+
+.testPaperNavi {
+  height: 400rpx;
+  margin-bottom : 20rpx;
+  border-bottom-color: #aaa;
+}
+
+.button_view{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.paper_button{
+  width: 40%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #161616;
+  font-size: 32rpx;
+  color: #aaa;
+}
+
+.paper_button_tapped{
+  width: 40%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #161616;
+  font-size: 32rpx;
+  color: #aaa;
+}
+
+.paper_button_tapped::after{
+  border:15rpx solid #2dabff;
+}
+
+.score{
+  font-size: 32rpx;
+  color: greenyellow;
+  margin-top: -25rpx;
+}
+
+.incomp{
+  font-size: 32rpx;
+  color: #aaa;
+  margin-top: -25rpx;
+}
+
+.wenda{
+  font-size: 32rpx;
+  color: #323232;
+  margin-top: -25rpx;
+}
+
+.year{
+  width: 500rpx;
+  margin-left: 30rpx;
+}
+
+.space_testpaper{
+  width: 150rpx;
+}
+
+.arrow{
+  width: 10px;  
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  right: 20rpx;
+  }

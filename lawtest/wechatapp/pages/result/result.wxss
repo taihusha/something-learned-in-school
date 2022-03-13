@@ -1,0 +1,291 @@
+Page{
+  background-color: #323232;
+}
+
+.background{
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  position: fixed;
+}
+
+.background_back{
+  width: 100%;
+  height: 100%;
+  z-index: -101;
+  position: fixed;
+}
+
+.bg_panel{
+  width: 80%;
+  height: 600rpx;
+  z-index: 0;
+  position: fixed;
+  border-radius: 10rpx 10rpx 0 0 / 10rpx 10rpx 0 0;
+  margin-left: 75rpx;
+  margin-top: -50rpx;
+  background-color: black;
+}
+
+.login_button{
+  width: 120rpx;
+  height: 60rpx;
+  z-index: 101;
+  border-radius: 20%;
+}
+
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 100;
+  border-radius: 50%;
+}
+
+.userinfo {
+  width: 100%;
+  height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  position: relative;
+}
+
+.title {
+  width: 100%;
+  height: 500rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  position: relative;
+  margin-top: -150rpx;
+}
+
+.score-title{
+  z-index: 100;
+  color: white;
+  font-size: 25rpx;
+  letter-spacing: 3rpx;
+}
+
+.score-num{
+  z-index: 100;
+  color: white;
+  font-size: 80rpx;
+  letter-spacing: 4rpx;
+  font-weight: 700;
+}
+.modalShow{
+   z-index:101;
+   position:fixed;
+   top:200rpx;
+}
+.score-remark{
+  width: 80%;
+  text-align: center;
+  z-index: 100;
+  margin-top: 20rpx;
+  line-height: 50rpx;
+  color: white;
+  font-size: 30rpx;
+  letter-spacing: 3rpx;
+}
+
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 100;
+  position: fixed;
+  margin-top: 60rpx;
+  margin-left: 50rpx;
+}
+
+.home{
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 101;
+  position: fixed;
+  margin-top: 60rpx;
+  margin-left: 50rpx;
+}
+
+.home_tapped{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  z-index: 101;
+  position: fixed;
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+  background-color: #00000060;
+}
+
+.list{
+  width: 80%;
+  height: 650rpx;
+  z-index: 1;
+  position: fixed;
+  margin-left: 75rpx;
+  margin-top: -50rpx;
+}
+
+.status-lists {
+  max-height: 550rpx;
+  padding: 25rpx 20rpx 25rpx 30rpx;
+  z-index: 100;
+  overflow: auto;
+}
+
+.status-lists .status-list {
+  float: left;
+  width: 70rpx;
+  height: 70rpx;
+  margin: 25rpx 0 0 20rpx;
+  border-radius: 50%;
+  background-color:#323232;
+  font-size: 35rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #eeeeee;
+}
+
+.status-lists .active {
+  float: left;
+  width: 70rpx;
+  height: 70rpx;
+  margin: 25rpx 0 0 20rpx;
+  border-radius: 50%;
+  background-color:#484848;
+  font-size: 35rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #eeeeee;
+}
+
+.wrong {
+  text-align: center;
+  margin-left: -40rpx;
+  color: white;
+  font-size: 20rpx;
+  letter-spacing: 2rpx;
+}
+
+.again{
+  margin-top: 555rpx;
+  margin-left: 75rpx;
+  width: 298rpx;
+  height: 100rpx;
+  z-index: -1;
+  position: fixed;
+}
+
+.again_full{
+  margin-top: 555rpx;
+  margin-left: 75rpx;
+  width: 600rpx;
+  height: 100rpx;
+  z-index: -1;
+  position: fixed;
+}
+
+.func_button_full{
+  width: 600rpx;
+  height: 100rpx;
+  z-index: 101;
+  position: fixed;
+}
+
+.func_tapped_full{
+  width: 600rpx;
+  height: 100rpx;
+  z-index: 101;
+  position: fixed;
+  background-color: black;
+  border-radius: 10rpx 10rpx 10rpx 10rpx / 10rpx 10rpx 10rpx 10rpx;
+}
+
+.func_panel_full{
+  width: 600rpx;
+  height: 100rpx;
+  z-index: 0;
+  position: fixed;
+  background-color: black;
+  border-radius: 10rpx 10rpx 10rpx 10rpx / 10rpx 10rpx 10rpx 10rpx;
+}
+
+.cuoti{
+  margin-top: 555rpx;
+  margin-left: 378rpx;
+  width: 298rpx;
+  height: 100rpx;
+  z-index: -1;
+  position: fixed;
+}
+
+.func_button{
+  width: 298rpx;
+  height: 100rpx;
+  z-index: 101;
+  position: fixed;
+}
+
+.func_tapped_left{
+  width: 298rpx;
+  height: 100rpx;
+  z-index: 101;
+  position: fixed;
+  background-color: black;
+  border-radius: 0 0 0 10rpx / 0 0 0 10rpx;
+}
+
+.func_panel_left{
+  width: 298rpx;
+  height: 100rpx;
+  z-index: 0;
+  position: fixed;
+  background-color: black;
+  border-radius: 0 0 0 10rpx / 0 0 0 10rpx;
+}
+
+.func_tapped_right{
+  width: 298rpx;
+  height: 100rpx;
+  z-index: 101;
+  position: fixed;
+  background-color: black;
+  border-radius: 0 0 10rpx 0 / 0 0 10rpx 0;
+}
+
+.func_panel_right{
+  width: 298rpx;
+  height: 100rpx;
+  z-index: 0;
+  position: fixed;
+  background-color: black;
+  border-radius: 0 0 10rpx 0 / 0 0 10rpx 0;
+}
+
+.func_text{
+  margin-top: 30rpx;
+  margin-left: 85rpx;
+  align-content: center;
+  z-index: 100;
+  position: fixed;
+  color: white;
+  font-size: 30rpx;
+  letter-spacing: 3rpx;
+}
+
+.func_text_full{
+  margin-top: 30rpx;
+  margin-left: 122rpx;
+  align-content: center;
+  z-index: 100;
+  position: fixed;
+  color: white;
+  font-size: 30rpx;
+  letter-spacing: 3rpx;
+}

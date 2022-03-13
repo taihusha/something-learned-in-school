@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+      "show-wrong": "/components/showWrong/showWrong"
+    }
+  }

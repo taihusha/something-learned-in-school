@@ -1,0 +1,38 @@
+<view class="navibar"/>
+<view class="bg_panel" style="opacity:{{0.7}}">
+  <image class="background" src="/pages/res/62740716_p1.png" mode="aspectFill"></image>
+</view>
+<text class="title">真题列表</text>
+<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+<view class="space">　</view>
+<scroll-view class="list_panel" scroll-y="true">
+  <view wx:for = "{{testPaper}}" wx:key = "key" >
+    <view class = "testPaper" hover-class='testpaper_tapped' bindtap = "onExpland" data-index = "{{index}}">
+      <view class="year">{{item.year}}</view>
+      <view class="space_testpaper"></view>
+      <view class="arrow" style="transform: rotate({{item.isOpen?135:45}}deg);"></view>
+    </view>
+    <view class = "testPaperNavi" hidden = "{{!item.isOpen}}" >
+      <view class='space_button'>　</view>
+      <view class = "button_view">
+        <button class="paper_button" hover-class='paper_button_tapped' catchtap="onShowPaper" data-num="1" data-year="{{item.year}}">试卷一
+          <text class="score" wx:if="{{item.grade1 != 200}}">得分: {{item.grade1}}</text>
+          <text class="incomp" wx:else>未完成</text>
+        </button>
+        <button class="paper_button" hover-class='paper_button_tapped' catchtap="onShowPaper" data-num="2" data-year="{{item.year}}">试卷二
+          <text class="score" wx:if="{{item.grade2 != 200}}">得分: {{item.grade2}}</text>
+          <text class="incomp" wx:else>未完成</text>
+        </button>
+      </view>
+      <view class = "button_view">
+        <button class="paper_button" hover-class='paper_button_tapped' catchtap="onShowPaper" data-num="3" data-year="{{item.year}}">试卷三
+          <text class="score" wx:if="{{item.grade3 != 200}}">得分: {{item.grade3}}</text>
+          <text class="incomp" wx:else>未完成</text>
+        </button>
+        <button class="paper_button" style="opacity:{{item.year=='2012年国家司法考试'?0:1}}" hover-class='paper_button_tapped' catchtap="onShowPaper" data-num="4" data-year="{{item.year}}">试卷四
+          <text class="wenda">暂无评分</text>
+        </button>
+      </view>
+    </view>
+  </view>
+</scroll-view>

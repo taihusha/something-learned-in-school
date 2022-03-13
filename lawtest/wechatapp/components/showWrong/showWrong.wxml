@@ -1,0 +1,45 @@
+<!--packageA/pages/component/showWrong/showWrong.wxml-->
+<view class="show-page" wx:if = "{{modalShow}}">
+  <view class="modal-mask" bindtap="closeModal"/>
+  <view class="show-content">
+  <scroll-view  scroll-y="true" class="scroll">
+    <view class="modal-title">{{wrongProblem.type}}</view>
+    <view class="modal-body" wx:if="{{wrongProblem.problemId<5218 && wrongProblem.s.length != 0}}">{{wrongProblem.s}}</view>
+    <view class="modal-body">{{wrongProblem.q}}</view>
+    <block wx:if = "{{wrongProblem.type == '单选'}}">
+      <radio-group bindchange="radioChange">
+        <view class="label" wx:for="{{wrongProblem.options}}" wx:key="index">
+          <radio id="{{item.label}}" value="{{item.label}}" class="label-radio" checked="{{item.checked}}"
+          hidden = "true"></radio>
+          <label class="{{item.checked}}" for="{{item.label}}">
+            <view class="option_space">　</view>
+            <view style="line-height: 55rpx; margin-left: 20rpx">{{item.label}}.{{item.text}}</view>
+            <view class="option_space">　</view>
+          </label>
+        </view>
+      </radio-group>
+    </block>
+    <block wx:else>
+      <checkbox-group bindchange="checkBoxChange">
+        <view class="label" wx:for="{{wrongProblem.options}}" wx:key="index">
+          <checkbox id="{{item.label}}" value="{{item.label}}" class="label-checkbox" checked="{{item.checked}}" hidden = "true"></checkbox>
+          <label class="{{item.checked}}" for="{{item.label}}">
+            <view class="option_space">　</view>
+            <view style="line-height: 55rpx; margin-left: 20rpx">{{item.label}}.{{item.text}}</view>
+            <view class="option_space">　</view>
+          </label>
+        </view>
+      </checkbox-group>
+    </block>
+    <view wx:if = "{{wrongProblem.isAnswer!=0}}" class="modal-answer" >
+      <view class="modal-body">您的答案为 ：{{wrongProblem.choose}}</view>
+      <view class="modal-body">正确答案为 ：{{wrongProblem.a}}</view>
+      <view class="modal-body">{{wrongProblem.explain}}</view>
+    </view>
+  </scroll-view>
+  <view class = "buttons">
+      <button class = "confirmButton"  bindtap="confirmButton">确定</button>
+      <button class = "deleteButton" disabled="{{wrongProblem.isAnswer==1?false:true}}" bindtap = "deleteButton">移出当前列表</button>
+  </view>
+  </view>
+</view>

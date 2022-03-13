@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/mainUI/main",
+    "pages/section/section",
+    "pages/testpaper/testpaper",
+    "pages/problem/problem",
+    "pages/result/result",
+    "pages/wrongpro/wrongpro",
+    "pages/difficult/difficult"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

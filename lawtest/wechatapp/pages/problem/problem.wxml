@@ -1,0 +1,4 @@
+<!--pages/python/python.wxml-->
+<import src="../common/python-list.wxml" />
+    <template wx:if="{{!isLoading}}" is="question-list" data="{{answers,allList,layerlayer,swiper,background,countDownSecond,countDownMin,isWenda}}" />
+   <loading wx:elif="{{isLoading}}">加载中...</loading>

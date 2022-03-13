@@ -1,0 +1,17 @@
+/**
+ * 参数1: 要截取的字符串
+ * 参数2: 开始截取的index
+ * 参数3: 结束截取的index
+ */
+var substring = function (val,end) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  if(end>val.length){
+    return val.substring(0,end);
+  }
+  else{
+    return val.substring(0,end-1)+"...";
+  }
+}
+module.exports.substring = substring;

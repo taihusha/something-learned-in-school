@@ -1,0 +1,15 @@
+<!--packageA/pages/component/showWrong/showWrong.wxml-->
+<view class="show-page" wx:if = "{{modalShow}}">
+ <view class="modal-mask" bindtap="closeModal"/>
+   <scroll-view  scroll-y="true" class="show-content">
+      <view class="modal-title">{{wrongProblem.type}}</view>
+      <view class="modal-body" wx:if="{{item.s != ''}}">{{item.s}}</view>
+      <view class="modal-body">{{wrongProblem.q}}</view>
+      <view class="modal-body" wx:if="{{!isWenda}}" wx:for="{{wrongProblem.options}}" wx:for-item="subitem" wx:key="id">{{subitem.label}}.{{subitem.text}}</view>
+      <view  class="modal-answer" >
+        <view class="modal-body" wx:if="{{!isWenda}}">您的答案为 ：{{wrongProblem.choose}}</view>
+        <view class="modal-body">正确答案为 ：{{wrongProblem.a}}</view>
+        <view class="modal-body">{{wrongProblem.explain}}</view>
+      </view>
+   </scroll-view>
+</view>
